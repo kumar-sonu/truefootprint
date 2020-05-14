@@ -24,7 +24,8 @@ class Api::V1::MessagesController < ActionController::API
   end
 
   private
-    def message_params
-      params.permit(:body, :sender, :posted_at)
-    end
+
+  def message_params
+    params.permit(:body, :sender, :posted_at)
+  end
 end

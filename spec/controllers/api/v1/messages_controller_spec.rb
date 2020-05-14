@@ -11,7 +11,9 @@ RSpec.describe Api::V1::MessagesController do
     end
     it 'JSON body response contains expected message attributes' do
       json_response = JSON.parse(response.body)
-      expect(json_response['results'].first.keys).to match_array(['id', 'body', 'sender', 'posted_at'])
+      expect(json_response['results'].first.keys).to(
+        match_array(%w[id body sender posted_at])
+      )
     end
   end
 
@@ -30,7 +32,7 @@ RSpec.describe Api::V1::MessagesController do
       it { expect(Message.count).to eq(1) }
       it { expect(Message.first.body).to eq('This is a test post') }
       it { expect(Message.first.sender).to eq('Robert') }
-      it { expect(response).to have_http_status(:success)  }
+      it { expect(response).to have_http_status(:success) }
     end
   end
 end
