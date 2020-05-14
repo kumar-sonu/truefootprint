@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Required ruby version
+- ruby '2.6.3'
 
-Things you may want to cover:
+Rails API endpoints:
 
-* Ruby version
+GET api/v1/messages
+example response:
+{
+  "results": [
+    {
+      "id": 1,
+      "body": "this is a post",
+      "sender": "ritesh",
+      "posted_at": "2020-05-14T15:21:06.000Z"
+    }
+  ]
+}
 
-* System dependencies
+POST api/v1/messages
+options:
+  body:text
+  sender:string
+  posted_at:datetime
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+example response:
+{
+  "id": 26,
+  "body": "this is post",
+  "sender": "robert",
+  "posted_at": "2020-03-10T09:09:06.000Z",
+  "created_at": "2020-05-14T16:33:28.173Z",
+  "updated_at": "2020-05-14T16:33:28.173Z"
+}
